@@ -1,5 +1,5 @@
-process.on('message', async function({min, max}) {
-    process.send(await getRndInt(min, max))
+process.on('message', function({delay}) {
+    process.send(getAwaitedTime(delay))
     process.exit()
 })
 
@@ -12,3 +12,11 @@ async function getRndInt(min, max) {
         }, waitSec)
     })
 }
+
+function getAwaitedTime (time) {
+    for(let i = time; i > 0; i--) {
+        //do nothing just wait
+        console.log(i)
+    }
+    return {"time": time}
+ }
