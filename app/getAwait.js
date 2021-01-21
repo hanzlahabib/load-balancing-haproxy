@@ -1,8 +1,3 @@
-process.on('message', function({delay}) {
-    process.send(getAwaitedTime(delay))
-    process.exit()
-})
-
 async function getRndInt(min, max) {
     let waitSec = Math.floor(Math.random() * (max-min) ) + min;
 
